@@ -1,6 +1,10 @@
 # SisGU #
 ## Sistema de Gerenciamento de Usuarios ##
 
+## Atenção! O código presente na branch "develop" não compila por falta de implementações. ##
+Porém, de toda maneira, contém comentários sobre implementações ausentes e o que eu, o autor, pensei
+sobre as implementações que faltam.
+
 ### Início ###
 Esse é um sistema básico de gerenciamento de usuários
 
