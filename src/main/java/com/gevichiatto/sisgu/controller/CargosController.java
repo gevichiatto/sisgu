@@ -38,4 +38,12 @@ public class CargosController {
         Cargos resource = cargosService.saveCargo(cargo);
         return ResponseEntity.ok(resource);
     }
+
+	@PostMapping(path = CargoLinks.EDIT_CARGO)
+	public ResponseEntity<?> updateCargo(@RequestBody Cargos cargo) {
+        //log.info("CargosController:  list cargos");
+        System.out.println("Obj cargo: " + cargo);
+        Cargos resource = cargosService.updateCargo(cargo);
+        return ResponseEntity.ok(resource);
+    }
 }

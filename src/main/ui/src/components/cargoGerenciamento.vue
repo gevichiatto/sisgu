@@ -65,7 +65,8 @@ export default {
             results: false,
             cargos: '',
             modalTitle: '',
-            acaoBotao: ''
+            acaoBotao: '',
+            id: null
         }
     },
     methods: {
@@ -97,6 +98,7 @@ export default {
             this.modalTitle = "Edição de cargos";
             this.acaoBotao = "Salvar";
             this.nome = cargo.nome;
+            this.id = cargo.id;
             this.$modal.show('modalCargo',);
         },
         acao() {
@@ -106,7 +108,12 @@ export default {
                 this.editarCargo();
         },
         editarCargo() {
-            console.log("Editar cargo");
+            console.log("Editandoo")
+            const payload = {
+                nome: this.nome,
+                id: this.id
+            }
+            this.$emit('editCargo', payload);
             this.$modal.hide('modalCargo');
         }
     },

@@ -1,6 +1,7 @@
 package com.gevichiatto.sisgu.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.stereotype.Component;
 
@@ -25,4 +26,9 @@ public class CargosService {
     	return cargosRepository.save(cargos);
     }
 
+    public Cargos updateCargo(Cargos cargos) {
+        Optional<Cargos> atualizavel = cargosRepository.findById(cargos.id);
+        System.out.println("Atualizavel: " + atualizavel);
+        return cargosRepository.save(cargos);
+    }
 }

@@ -16,10 +16,10 @@ public class Cargos {
     @Id
     @GeneratedValue
     @Column
-    private long id;
+    public int id;
 
     @Column
     @NotNull(message="{NotNull.Cargo.nome}")
-    private String nome;
+    public String nome;
     
 }

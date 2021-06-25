@@ -12,3 +12,12 @@ export async function createCargo(data) {
     })
     return await response.json();
 }
+
+export async function editCargo(data) {
+    const response = await fetch(`/api/edit_cargo`, {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(data)
+    })
+    return await response.json();
+}
