@@ -23,7 +23,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr v-for="item in users" :key="item.id">
+                            <tr v-for="item in cargos" :key="item.id">
                                 <td>{{ item.id }}</td>
                                 <td>{{ item.firstName }}</td>
                             </tr>
@@ -40,7 +40,7 @@
                 <div class="row">
                     <div class="form-group col-md-6">
                         <label>Nome do Cargo</label>
-                        <input type="text" class="form-control" v-model="cargoName" name="cargoName" id="cargoName" aria-describedby="emailHelp" placeholder="Nome do Cargo" />
+                        <input type="text" class="form-control" v-model="nome" name="nome" id="nome" aria-describedby="emailHelp" placeholder="Nome do Cargo" />
                     </div>
                 </div>
                 <div class="row">
@@ -56,8 +56,9 @@ export default {
     name: 'cargoGerenciamento',
     data() {
         return {
-            cargoName: '',
-            results: false
+            nome: '',
+            results: false,
+            cargos: ''
         }
     },
     methods: {
@@ -69,8 +70,16 @@ export default {
             this.results = !this.results;
         },
         clearForm() {
-            this.cargoName = "";
-        }
+            this.nome = "";
+        },
+        createCargo() {
+          const payload = {
+              nome: this.nome
+          }
+          this.$emit('createCargo', payload);
+          this.clearForm();
+          this.$modal.hide('modalCadastroCargo');
+        },
     },
 }
 </script>

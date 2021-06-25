@@ -1,14 +1,14 @@
-export async function getAllUsers() {
+export async function getAllCargos() {
 
-    const response = await fetch('/api/users');
+    const response = await fetch('/api/cargos');
     return await response.json();
 }
 
-export async function createUser(data) {
-    const response = await fetch(`/api/user`, {
+export async function createCargo(data) {
+    const response = await fetch(`/api/cargo`, {
         method: 'POST',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(data)
-      })
+    })
     return await response.json();
 }
