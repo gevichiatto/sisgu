@@ -7,7 +7,7 @@
                 </div>
                 <div class="row">
                     <button type="button" @click='showModal()' class="col-md-4 btn btn-cadastro">Cadastrar Cargo</button>
-                    <button type="button" @click='showTabela()' class="col-md-4 btn btn-cadastro">Listar Cargos</button>
+                    <button type="button" @click='showTabela()' class="col-md-4 btn btn-cadastro">{{ labelBotao }}</button>
                 </div>
             </div>
         </div>
@@ -66,7 +66,8 @@ export default {
             cargos: '',
             modalTitle: '',
             acaoBotao: '',
-            id: null
+            id: null,
+            labelBotao: "Listar Cargos"
         }
     },
     methods: {
@@ -78,7 +79,8 @@ export default {
         },
         async showTabela() {
             this.results = !this.results;
-            this.cargos = this.cargos ? this.cargos : await getAllCargos();
+            this.labelBotao = !this.results ? "Listar Cargos" : "Ocultar Cargos";
+            this.cargos = await getAllCargos();
         },
         clearForm() {
             this.nome = "";
@@ -107,14 +109,15 @@ export default {
             else
                 this.editarCargo();
         },
-        editarCargo() {
-            console.log("Editandoo")
+        async editarCargo() {
+            console.log("Editando")
             const payload = {
                 nome: this.nome,
                 id: this.id
             }
             this.$emit('editCargo', payload);
             this.$modal.hide('modalCargo');
+            this.cargos = await getAllCargos();
         }
     },
 }

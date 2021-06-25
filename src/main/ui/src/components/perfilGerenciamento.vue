@@ -7,7 +7,7 @@
                 </div>
                 <div class="row">
                     <button type="button" @click='showModal()' class="col-md-4 btn btn-cadastro">Cadastrar Perfil</button>
-                    <button type="button" @click='showTabela()' class="col-md-4 btn btn-cadastro">Listar Perfis</button>
+                    <button type="button" @click='showTabela()' class="col-md-4 btn btn-cadastro">{{ labelBotao }}</button>
                 </div>
             </div>
         </div>
@@ -18,14 +18,14 @@
                         <table class="table table-bordered">
                         <thead>
                             <tr>
-                                <th>Nome do Perfil</th>
-                                <th>Ação</th>
+                                <th class="tableHead">Nome do Perfil</th>
+                                <th class="tableHead">Ação</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr v-for="item in users" :key="item.id">
-                                <td>{{ item.id }}</td>
-                                <td>{{ item.firstName }}</td>
+                                <td class="tableRows">{{ item.id }}</td>
+                                <td class="tableRows">{{ item.firstName }}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -34,7 +34,7 @@
             </div>
         </div>
         <!-- Modal de Cadastro de Perfil -->
-        <modal name="modalCadastroPerfil">
+        <modal name="modalPerfil">
             <h4 class="modal-titles modal-header">Cadastro de perfil</h4>
             <form class="modalBody">
                 <div class="row">
@@ -57,16 +57,18 @@ export default {
     data() {
         return {
             perfilName: '',
-            results: false
+            results: false,
+            labelBotao: "Listar Perfis"
         }
     },
     methods: {
         showModal() {
-            this.$modal.show('modalCadastroPerfil',);
+            this.$modal.show('modalPerfil',);
             this.clearForm();
         },
         showTabela() {
             this.results = !this.results;
+            this.labelBotao = !this.results ? "Listar Perfis" : "Ocultar Perfis";
         },
         clearForm() {
             this.perfilName = "";
