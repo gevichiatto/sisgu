@@ -27,7 +27,7 @@ public class CargosService {
     }
 
     public Cargos updateCargo(Cargos cargos) {
-        Optional<Cargos> atualizavel = cargosRepository.findById(cargos.id);
+        Optional<Cargos> atualizavel = cargosRepository.findById(cargos.getId());
         System.out.println("Atualizavel: " + atualizavel);
         return cargosRepository.save(cargos);
     }

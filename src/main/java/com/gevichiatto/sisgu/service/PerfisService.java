@@ -27,7 +27,7 @@ public class PerfisService {
     }
 
     public Perfis updatePerfil(Perfis perfis) {
-        Optional<Perfis> atualizavel = perfisRepository.findById(perfis.id);
+        Optional<Perfis> atualizavel = perfisRepository.findById(perfis.getId());
         System.out.println("Atualizavel: " + atualizavel);
         return perfisRepository.save(perfis);
     }
