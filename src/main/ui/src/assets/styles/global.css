@@ -53,6 +53,14 @@ h1 {
   color: white!important;
 }
 
+.btn-dark {
+  background-color: rgb(20, 61, 58)!important;
+}
+
+.btn-dark:hover {
+  background-color: rgb(14, 41, 39)!important;
+}
+
 .titles {
   color: rgba(81, 102, 100);
   font-weight: 650;
@@ -75,11 +83,22 @@ h1 {
   border-top: 10px solid rgba(65, 197, 185);
   width: 60%;
   box-shadow: 0 0px 10px rgb(0 0 0 / 5%);
-  border-radius: 10px
+  border-radius: 10px;
 }
 
 .tableContent {
   padding: 2rem 2rem;
+  background-color: whitesmoke;
+}
+
+.tableHead {
+  background-color: rgba(65, 197, 186, 0.25);
+  cursor: pointer;
+  text-align: center;
+}
+
+.tableRows {
+  text-align: center;
   background-color: white;
 }
 

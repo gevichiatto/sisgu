@@ -18,14 +18,18 @@
                         <table class="table table-bordered">
                         <thead>
                             <tr>
-                                <th>Nome do Cargo</th>
-                                <th>Ação</th>
+                                <th class="tableHead" @click='sort()'>Nome do Cargo</th>
+                                <th class="tableHead">Ação</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr v-for="item in cargos" :key="item.id">
-                                <td>{{ item.id }}</td>
-                                <td>{{ item.firstName }}</td>
+                                <td class="tableRows">{{ item.nome }}</td>
+                                <td class="tableRows" @click='editCargo(item)'>
+                                    <button class="btn btn-dark" title="Editar Cargo" >
+										<img src="../icons/edit-2.svg" alt="">
+									</button>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
@@ -34,8 +38,8 @@
             </div>
         </div>
         <!-- Modal de Cadastro de Cargos -->
-        <modal name="modalCadastroCargo">
-            <h4 class="modal-titles modal-header">Cadastro de cargos</h4>
+        <modal name="modalCargo">
+            <h4 class="modal-titles modal-header">{{ modalTitle }}</h4>
             <form class="modalBody">
                 <div class="row">
                     <div class="form-group col-md-6">
@@ -44,7 +48,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <button type="button" @click='createCargo()' class="btn btn-cadastro">Cadastrar</button>
+                    <button type="button" @click='acao()' class="btn btn-cadastro">{{ acaoBotao }}</button>
                 </div>
             </form>
         </modal>
@@ -52,22 +56,28 @@
 </template>
 
 <script>
+import { getAllCargos } from '../services/cargoService'
 export default {
     name: 'cargoGerenciamento',
     data() {
         return {
             nome: '',
             results: false,
-            cargos: ''
+            cargos: '',
+            modalTitle: '',
+            acaoBotao: ''
         }
     },
     methods: {
         showModal() {
-            this.$modal.show('modalCadastroCargo',);
+            this.modalTitle = "Cadastro de cargos";
+            this.acaoBotao = "Cadastrar";
+            this.$modal.show('modalCargo',);
             this.clearForm();
         },
-        showTabela() {
+        async showTabela() {
             this.results = !this.results;
+            this.cargos = this.cargos ? this.cargos : await getAllCargos();
         },
         clearForm() {
             this.nome = "";
@@ -78,8 +88,27 @@ export default {
           }
           this.$emit('createCargo', payload);
           this.clearForm();
-          this.$modal.hide('modalCadastroCargo');
+          this.$modal.hide('modalCargo');
         },
+        sort() {
+            this.cargos.sort((a,b) => b.nome > a.nome ? -1 : 1);
+        },
+        editCargo(cargo) {
+            this.modalTitle = "Edição de cargos";
+            this.acaoBotao = "Salvar";
+            this.nome = cargo.nome;
+            this.$modal.show('modalCargo',);
+        },
+        acao() {
+            if (this.acaoBotao == "Cadastrar")
+                this.createCargo();
+            else
+                this.editarCargo();
+        },
+        editarCargo() {
+            console.log("Editar cargo");
+            this.$modal.hide('modalCargo');
+        }
     },
 }
 </script>

@@ -3,7 +3,7 @@
     <Header/>
     <div class="container mrgnbtm"  style="display: flex; justify-content: center; flex-wrap: wrap;flex-direction: column;">
           <div class="row">
-            <CargoGerenciamento @createCargo="cargoCreate($event)" />
+            <CargoGerenciamento @createCargo="cargoCreate($event)" @getAllCargos="getAllCargos()"/>
           </div>
           <div class="row">
             <PerfilGerenciamento/>
@@ -24,7 +24,7 @@ import CargoGerenciamento from './cargoGerenciamento.vue'
 import PerfilGerenciamento from './perfilGerenciamento.vue'
 import UsuarioGerenciamento from './usuarioGerenciamento.vue'
 // import Users from './users.vue'
-import { createCargo } from '../services/cargoService'
+import { getAllCargos, createCargo } from '../services/cargoService'
 
 export default {
   name: 'Dashboard',
@@ -42,21 +42,29 @@ export default {
     }
   },
   methods: {
-    // getAllCargos() {
-    //   getAllCargos().then(response => {
-    //     console.log(response)
-    //     this.users = response
-    //     this.numberOfUsers = this.users.length
-    //   })
-    // },
+    getAllCargos() {
+      getAllCargos().then(response => {
+        console.log(response)
+        this.cargos = response;
+        CargoGerenciamento.cargos = response;
+        return response;
+        // this.numberOfUsers = this.users.length
+      })
+    },
     cargoCreate(data) {
       console.log('data:::', data)
-      // data.id = this.numberOfUsers + 1
-      // this.numberOfUsers = data.id;
-      createCargo(data).then(response => {
-        console.log("Resposta da req: ", response);
-        // this.getAllCargos();
-      });
+      getAllCargos().then(res => {
+        for (var i = 0; i < res.length; i++) {
+          if (res[i].nome == data.nome) {
+            return;
+          }
+        }
+        createCargo(data).then(response => {
+          console.log("Resposta da req: ", response);
+          this.getAllCargos();
+        });
+      })
+      
     }
   }
   // mounted () {
