@@ -1,9 +1,35 @@
-# sisgu
-Sistema de Gerenciamento de Usuarios
+# SisGU #
+## Sistema de Gerenciamento de Usuarios ##
 
---- Executar backend em localhost:8080 ---
+### Início ###
+Esse é um sistema básico de gerenciamento de usuários
+
+### Pré requisitos ###
+- NodeJs
+- Java
+
+### Passo a passo para execução do sistema ###
+1. Clone o projeto deste repositório :)
+
+2. No diretório do repositório clonado, execute o seguinte comando para instalar as dependências do backend:
+```
 mvn clean install
-java -jar target/sisgu-0.0.1-SNAPSHOT.jar
+```
 
---- Executar frontend em localhost:4000 ---
-cd src/main/ui >> npm run serve
+3. Navegue até o diretório src/main/ui e execute o seguinte comando para instalar as dependências do frontend:
+```
+npm install
+```
+
+4. Para iniciar o sistema é necessário executar comandos para o backend e para o frontend. Dessa forma, execute:
+```
+java -jar target/sisgu-0.0.1-SNAPSHOT.jar
+````
+no diretório raiz do sistema, para iniciar a execução do backend e execute:
+```
+npm run serve
+```
+no diretório src/main/ui, para iniciar a execução do backend.
+
+5. Acesse o sistema por meio do link http://localhost:4000
+
