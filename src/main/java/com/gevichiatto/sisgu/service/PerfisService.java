@@ -22,13 +22,11 @@ public class PerfisService {
     }
     
     public Perfis savePerfil(Perfis perfis) {
-        System.out.println("valor gerando" + perfis);
     	return perfisRepository.save(perfis);
     }
 
     public Perfis updatePerfil(Perfis perfis) {
         Optional<Perfis> atualizavel = perfisRepository.findById(perfis.getId());
-        System.out.println("Atualizavel: " + atualizavel);
         return perfisRepository.save(perfis);
     }
 }

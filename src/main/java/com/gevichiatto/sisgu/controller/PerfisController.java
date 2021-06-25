@@ -34,7 +34,6 @@ public class PerfisController {
 	@PostMapping(path = PerfilLinks.ADD_PERFIL)
 	public ResponseEntity<?> savePerfil(@RequestBody Perfis perfil) {
         //log.info("PerfisController:  list perfis");
-        System.out.println("Obj perfil: " + perfil);
         Perfis resource = perfisService.savePerfil(perfil);
         return ResponseEntity.ok(resource);
     }
@@ -42,7 +41,6 @@ public class PerfisController {
 	@PostMapping(path = PerfilLinks.EDIT_PERFIL)
 	public ResponseEntity<?> updatePerfil(@RequestBody Perfis perfil) {
         //log.info("PerfisController:  list perfis");
-        System.out.println("Obj perfil: " + perfil);
         Perfis resource = perfisService.updatePerfil(perfil);
         return ResponseEntity.ok(resource);
     }

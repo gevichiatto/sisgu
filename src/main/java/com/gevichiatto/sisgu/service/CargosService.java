@@ -22,13 +22,11 @@ public class CargosService {
     }
     
     public Cargos saveCargo(Cargos cargos) {
-        System.out.println("valor gerando" + cargos);
     	return cargosRepository.save(cargos);
     }
 
     public Cargos updateCargo(Cargos cargos) {
         Optional<Cargos> atualizavel = cargosRepository.findById(cargos.getId());
-        System.out.println("Atualizavel: " + atualizavel);
         return cargosRepository.save(cargos);
     }
 }

@@ -46,7 +46,6 @@ export default {
     // Métodos para API de Cargos
     getAllCargos() {
       getAllCargos().then(response => {
-        console.log(response)
         this.cargos = response;
         CargoGerenciamento.cargos = response;
         return response;
@@ -54,7 +53,6 @@ export default {
       })
     },
     cargoCreate(data) {
-      console.log('data:::', data)
       getAllCargos().then(res => {
         for (var i = 0; i < res.length; i++) {
           if (res[i].nome == data.nome) {
@@ -62,15 +60,12 @@ export default {
           }
         }
         createCargo(data).then(response => {
-          console.log("Resposta da req: ", response);
           this.getAllCargos();
         });
       })
     },
     editarCargo(data) {
-      console.log('data edit:::', data);
       editCargo(data).then(res => {
-        console.log("Resposta req: ", res);
         this.getAllCargos();
       })
     },
@@ -78,7 +73,6 @@ export default {
     // Métodos para API de Perfis
     getAllPerfis() {
       getAllPerfis().then(response => {
-        console.log(response)
         this.perfis = response;
         PerfilGerenciamento.perfis = response;
         return response;
@@ -86,7 +80,6 @@ export default {
       })
     },
     perfilCreate(data) {
-      console.log('data:::', data)
       getAllPerfis().then(res => {
         for (var i = 0; i < res.length; i++) {
           if (res[i].nome == data.nome) {
@@ -94,15 +87,12 @@ export default {
           }
         }
         createPerfil(data).then(response => {
-          console.log("Resposta da req: ", response);
           this.getAllPerfis();
         });
       })
     },
     editarPerfil(data) {
-      console.log('data edit:::', data);
       editPerfil(data).then(res => {
-        console.log("Resposta req: ", res);
         this.getAllPerfis();
       })
     }

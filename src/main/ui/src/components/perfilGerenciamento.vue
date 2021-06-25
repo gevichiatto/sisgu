@@ -110,7 +110,6 @@ export default {
                 this.editarPerfil();
         },
         async editarPerfil() {
-            console.log("Editando")
             const payload = {
                 nome: this.nome,
                 id: this.id

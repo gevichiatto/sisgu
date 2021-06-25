@@ -110,7 +110,6 @@ export default {
                 this.editarCargo();
         },
         async editarCargo() {
-            console.log("Editando")
             const payload = {
                 nome: this.nome,
                 id: this.id
