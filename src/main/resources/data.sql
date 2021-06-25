@@ -12,7 +12,12 @@ CREATE TABLE perfis (
     NOME VARCHAR(250) NOT NULL
 );
 
-/*DROP TABLE IF EXISTS pessoa;
+/*
+
+#### A seguir está a modelagem pretendida para o banco de dados, com a implementação das tabelas "pessoa"
+e "user", com as respectivas chaves estrangeiras. ###
+
+DROP TABLE IF EXISTS pessoa;
 
 CREATE TABLE pessoa (
     id INT PRIMARY KEY,

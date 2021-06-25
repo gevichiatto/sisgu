@@ -1,3 +1,5 @@
+<!-- Observar comentários a partir da linha 84 -->
+
 <template>
     <div class="container">
         <div class="row">
@@ -79,6 +81,16 @@
 
 <script>
 export default {
+    /* este arquivo está incompleto. Há implementações de funções 
+    ** que seriam necessárias para o correto funcionamento do programa.
+    ** Porém sua lógica seria semelhante aos outros arquivos de gerenciamento.
+    ** A principal diferença seria na composição dos v-models para os multiselects.
+    ** Sempre que o usuário selecionasse a opção para cadastrar um usuário
+    ** ou editar um usuário, haveria requisições ao backend solicitando a lista
+    ** de cargos e perfis existentes no sistema para que as opções do multiselects
+    ** fossem povoadas. O modal só seria renderizado após a resposta dessas 
+    ** requisições.
+    */
     name: 'usuarioGerenciamento',
     data() {
         return {
