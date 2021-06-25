@@ -6,7 +6,7 @@
             <CargoGerenciamento @createCargo="cargoCreate($event)" @getAllCargos="getAllCargos()" @editCargo="editarCargo($event)"/>
           </div>
           <div class="row">
-            <PerfilGerenciamento/>
+            <PerfilGerenciamento @createPerfil="perfilCreate($event)" @getAllPerfis="getAllPerfis()" @editPerfil="editarPerfil($event)"/>
           </div>
           <div class="row">
             <UsuarioGerenciamento/>
@@ -25,6 +25,7 @@ import PerfilGerenciamento from './perfilGerenciamento.vue'
 import UsuarioGerenciamento from './usuarioGerenciamento.vue'
 // import Users from './users.vue'
 import { getAllCargos, createCargo, editCargo } from '../services/cargoService'
+import { getAllPerfis, createPerfil, editPerfil } from '../services/perfilService'
 
 export default {
   name: 'Dashboard',
@@ -42,6 +43,7 @@ export default {
     }
   },
   methods: {
+    // Métodos para API de Cargos
     getAllCargos() {
       getAllCargos().then(response => {
         console.log(response)
@@ -70,6 +72,38 @@ export default {
       editCargo(data).then(res => {
         console.log("Resposta req: ", res);
         this.getAllCargos();
+      })
+    },
+
+    // Métodos para API de Perfis
+    getAllPerfis() {
+      getAllPerfis().then(response => {
+        console.log(response)
+        this.perfis = response;
+        PerfilGerenciamento.perfis = response;
+        return response;
+        // this.numberOfUsers = this.users.length
+      })
+    },
+    perfilCreate(data) {
+      console.log('data:::', data)
+      getAllPerfis().then(res => {
+        for (var i = 0; i < res.length; i++) {
+          if (res[i].nome == data.nome) {
+            return;
+          }
+        }
+        createPerfil(data).then(response => {
+          console.log("Resposta da req: ", response);
+          this.getAllPerfis();
+        });
+      })
+    },
+    editarPerfil(data) {
+      console.log('data edit:::', data);
+      editPerfil(data).then(res => {
+        console.log("Resposta req: ", res);
+        this.getAllPerfis();
       })
     }
       
