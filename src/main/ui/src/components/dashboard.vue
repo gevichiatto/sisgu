@@ -51,8 +51,8 @@ export default {
     // },
     cargoCreate(data) {
       console.log('data:::', data)
-      data.id = this.numberOfUsers + 1
-      this.numberOfUsers = data.id;
+      // data.id = this.numberOfUsers + 1
+      // this.numberOfUsers = data.id;
       createCargo(data).then(response => {
         console.log("Resposta da req: ", response);
         // this.getAllCargos();

@@ -21,7 +21,7 @@ public class CargosService {
     }
     
     public Cargos saveCargo(Cargos cargos) {
-        System.out.println(cargos);
+        System.out.println("valor gerando" + cargos);
     	return cargosRepository.save(cargos);
     }
 

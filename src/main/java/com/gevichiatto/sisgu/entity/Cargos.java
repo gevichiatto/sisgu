@@ -2,6 +2,7 @@ package com.gevichiatto.sisgu.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.NotNull;
 
@@ -13,6 +14,7 @@ import lombok.Data;
 public class Cargos {
 
     @Id
+    @GeneratedValue
     @Column
     private long id;
 
