@@ -1,0 +1,92 @@
+.header {
+  padding: 1%;
+  background-color: rgba(65, 197, 185);
+  font-size: 35px;
+  text-align: center;
+  width: 100%;
+  color: white;
+}
+ 
+.footer {
+  padding: 2%;
+  background-color: red;
+  font-size: 50px;
+  text-align: center;
+  width: 100%
+}
+ 
+.dashboard {
+  padding: 3% 1%;
+}
+
+h1 {
+  text-align: center;
+}
+
+.display-board {
+  width: 100%;
+  background-color: rgba(0, 119, 128, 0.719);
+  padding: 5%;
+}
+
+.number {
+  color: red;
+  font-size: 75px;
+  text-align: center;
+}
+
+.mrgnbtm {
+  margin-top: 20px;
+}
+
+.btn-cadastro {
+  background-color: rgba(65, 197, 185);
+  color: white;
+  margin-right: 5%;
+  margin-left: 5%;
+  font-weight: 500;
+  box-shadow: 0 4px 8px rgba(32, 160, 255, 30%);
+}
+
+.btn-cadastro:hover {
+  background-color: rgba(48, 167, 157);
+  color: white!important;
+}
+
+.titles {
+  color: rgba(81, 102, 100);
+  font-weight: 650;
+}
+
+.modal-titles {
+  color: rgba(81, 102, 100);
+  font-weight: 500;
+  width: 100%;
+  justify-content: center;
+  display: flex;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  border-bottom: 1px solid #dee2e6;
+  padding: 1rem 1rem;
+}
+
+.tableContainer {
+  transition: .3s border-color;
+  border-top: 10px solid rgba(65, 197, 185);
+  width: 60%;
+  box-shadow: 0 0px 10px rgb(0 0 0 / 5%);
+  border-radius: 10px
+}
+
+.tableContent {
+  padding: 2rem 2rem;
+  background-color: white;
+}
+
+.modalBody {
+  padding: 1.5rem 1.5rem;
+}
+
+.row {
+  justify-content: center!important;
+}
