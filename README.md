@@ -33,3 +33,8 @@ no diretório src/main/ui, para iniciar a execução do backend.
 
 5. Acesse o sistema por meio do link http://localhost:4000
 
+
+### Avisos ###
+1. Note que o código estável desse sistema está na branch "main". O código na branch "develop" tem status de desenvolvimento não finalizado.
+
+2. Algumas funcionalidades do sistema não estão presentes na branch "main". O pseudo-código dessas funcionalidades está descrito na branch "develop", com o intuito de demonstrar a lógica para a implementação.
